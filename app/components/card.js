@@ -1,14 +1,10 @@
-"use client"
 import {
 	motion,
 	useMotionTemplate,
-	useMotionValue,
 	useSpring,
 } from "framer-motion"
 
-import { MouseEventHandler, PropsWithChildren } from "react"
-
-export default function Card({ children }){
+export function BunCard({ children }) {
 	const mouseX = useSpring(0, { stiffness: 500, damping: 100 })
 	const mouseY = useSpring(0, { stiffness: 500, damping: 100 })
 
