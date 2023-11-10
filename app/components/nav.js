@@ -18,7 +18,7 @@ export function BunNavigation() {
 	}, [])
 
 	return (
-		<header ref={ref}>
+		<header>
 			<div
 				className={`fixed inset-x-0 top-0 z-50 backdrop-blur  duration-200 border-b  ${
 					isIntersecting

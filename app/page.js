@@ -2,7 +2,7 @@ import Link from "next/link"
 import React from "react"
 
 const navigation = [
-  { name: "List", href: "/list" },
+  { name: "Shorten", href: "/shorten" },
   // { name: "Contact", href: "/contact" },
 ]
 
