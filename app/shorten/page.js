@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { BunNavigation } from "../components/nav"
 import shortid from 'shortid'
 import { ListLinks } from '../components/list'
-import { BunCopyButton } from '../components/CopyButton'
+import { BunCopyButton } from '../components/copyButton'
 
 export default function Shorten() {
 	const [originalURL, setOriginalURL] = useState('')

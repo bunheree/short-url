@@ -2,7 +2,7 @@
 import listLinks from '../../data/links.json'
 import { BunCard } from './card'
 import Link from 'next/link'
-import { BunCopyButton } from './CopyButton'
+import { BunCopyButton } from './copyButton'
 
 const domainName = "https://link.bunhere.com/"
 
