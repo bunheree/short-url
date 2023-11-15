@@ -3,7 +3,8 @@ import React from "react"
 
 const navigation = [
   { name: "Shorten", href: "/shorten" },
-  // { name: "Contact", href: "/contact" },
+  { name: "QR Generator", href: "/qr" },
+  { name: "Contact", href: "/contact" },
 ]
 
 export default function Home() {

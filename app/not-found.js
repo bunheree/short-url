@@ -17,6 +17,6 @@ const Redirect = () => {
     return (
         <div className="text-white">The link could not be found.</div>
     )
-};
+}
 
 export default Redirect

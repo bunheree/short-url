@@ -7,9 +7,9 @@ import { BunCard } from "../components/card"
 const socials = [
 	{
 		icon: <Twitter size={20} />,
-		href: "https://twitter.com/loanngo99",
+		href: "https://twitter.com/bunhere_",
 		label: "Twitter",
-		handle: "@loanngo99",
+		handle: "@bunhere_",
 	},
 	{
 		icon: <Mail size={20} />,
@@ -26,6 +26,7 @@ const socials = [
 ]
 
 export default function Contact() {
+
 	return (
 		<div className=" bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
 			<BunNavigation />

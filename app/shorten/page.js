@@ -3,8 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { BunNavigation } from "../components/nav"
 import shortid from 'shortid'
 import { ListLinks } from '../components/list'
-import { IconCopy } from '@tabler/icons-react'
-import { rem } from '@mantine/core'
+import { BunCopyButton } from '../components/CopyButton'
 
 export default function Shorten() {
 	const [originalURL, setOriginalURL] = useState('')
@@ -37,10 +36,10 @@ export default function Shorten() {
 
 	const isValidUrl = (string) => {
 		try {
-			new URL(string);
-			return true;
+			new URL(string)
+			return true
 		} catch (err) {
-			return false;
+			return false
 		}
 	}
 
@@ -59,24 +58,19 @@ export default function Shorten() {
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify({ key: link }), // Your data to be written into the JSON file
-			});
+			})
 
-			const data = await response.json();
-			console.log(data);
+			const data = await response.json()
+			console.log(data)
 		} catch (error) {
-			console.error(error);
+			console.error(error)
 		}
-	};
-
-
-	const handleCopyShortUrl = () => {
-		navigator.clipboard.writeText(shortenedURL)
 	}
 
 	return (
 		<div className=" bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
 			<BunNavigation />
-			<div className="container flex items-center justify-center min-h-screen px-4 mx-auto">
+			<div className="container flex items-center justify-center min-h-screen px-4 mx-auto overscroll-auto py-20">
 				<div className="grid-cols-1 gap-8 mx-auto mt-32 sm:mt-0 sm:grid-cols-3 lg:gap-16">
 					<label htmlFor="price" className="block text-sm font-medium leading-6">Destination URL</label>
 					<div className="relative mt-2 rounded-md shadow-sm">
@@ -98,11 +92,13 @@ export default function Shorten() {
 						<button className="rounded-md bg-white p-2 my-2 text-gray-800 hover:text-white hover:bg-pink-300  bg-blend-darken" onClick={handleShortenURL}>Shorten</button>
 					</div>
 					{shortenedURL && (
-						<div className="text-center">
-							<p className="text-center">
+						<div className="flex justify-between items-center">
+							<p>
 								Shortened URL: <a className="text-md text-sky-500" href={shortenedURL}>{shortenedURL}</a>
 							</p>
-							<button className="rounded-md p-2 my-2 border hover:bg-slate-600" onClick={handleCopyShortUrl}><IconCopy style={{ width: rem(16) }} /></button>
+							<div className="w-fit rounded-md p-2 my-2 border hover:bg-slate-600">
+								<BunCopyButton linkValue={shortenedURL} />
+							</div>
 						</div>
 					)}
 

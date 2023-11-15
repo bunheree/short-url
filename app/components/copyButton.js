@@ -1,24 +1,28 @@
 'use client'
-import { MantineProvider, CopyButton, ActionIcon, rem } from '@mantine/core'
-import { IconCopy, IconCheck } from '@tabler/icons-react'
+import { Copy, CheckCheck } from "lucide-react"
+import { useState } from 'react'
 
 export function BunCopyButton({ linkValue }) {
+    const [copied, setCopy] = useState(false)
 
+    const handleCopyShortUrl = (value) => {
+        setCopy(true)
+        navigator.clipboard.writeText(value)
+        setTimeout(() => {
+            setCopy(false)
+        }, 1000)
+    }
     return (
         <>
-            <MantineProvider defaultColorScheme="dark" forceColorScheme="light">
-                <CopyButton value={linkValue} timeout={2000} >
-                    {({ copied, copy }) => (
-                        <ActionIcon color={copied ? 'teal' : 'gray'} variant="subtle" onClick={copy}>
-                            {copied ? (
-                                <IconCheck style={{ width: rem(16) }} />
-                            ) : (
-                                <IconCopy style={{ width: rem(16) }} />
-                            )}
-                        </ActionIcon>
-                    )}
-                </CopyButton>
-            </MantineProvider>
+            <button
+                onClick={() => handleCopyShortUrl({linkValue})}
+                className="flex items-center gap-1 text-xs text-zinc-500 cursor-pointer">
+                {copied ? (
+                    <CheckCheck className="w-4 h-4 text-green-400" />
+                ) : (
+                    <Copy className="w-4 h-4" />
+                )}
+            </button>
         </>
     )
 }
